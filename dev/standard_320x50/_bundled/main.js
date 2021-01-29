@@ -42,7 +42,7 @@ function start() {
 
 	tl.from(".cta", TIME, { opacity: 0 }, "+=.3");
 
-	var tl_cta = new TimelineMax({ repeat: 5, yoyo: true });
+	var tl_cta = new TimelineMax({ repeat: 7, yoyo: true });
 	tl_cta.to(".cta.chev", .3, { x: "+=3", ease: Power1.easeOut });
 	tl.add(tl_cta);
 }
