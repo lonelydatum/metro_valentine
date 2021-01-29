@@ -1,6 +1,35 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var banner = document.getElementById('banner');
+var size = { w: banner.offsetWidth, h: banner.offsetHeight };
+
+function transformOrigin(id, percent) {
+	var el = document.getElementById(id);
+	var w = el.offsetWidth;
+	var h = el.offsetHeight;
+	var transformOrigin = {
+		x: w * percent.w,
+		y: h * percent.h
+	};
+	var pos = {
+		x: -transformOrigin.x / 2,
+		y: -transformOrigin.y / 2
+	};
+
+	var result = _extends({
+		transformOrigin: transformOrigin.x + "px " + transformOrigin.y + "px"
+	}, pos);
+
+	return result;
+}
+
 function start() {
 	TweenLite.defaultEase = Power2.easeOut;
 	var TIME = .4;
@@ -13,13 +42,11 @@ function start() {
 	var tl = new TimelineMax();
 	tl.set(".frame1", { opacity: 1 });
 
-	// tl.from(".heart", .5, {opacity:0}, "+=.2")
-
 	tl.from(".t1", TIME, { opacity: 0, y: "+=50" }, "+=.2");
 
 	tl.add('t1-out', "+=" + read.t1);
 
-	tl.to(".t1", TIME, { y: "-=180" }, "t1-out");
+	tl.to(".t1", TIME, { y: "-=180", opacity: 0 }, "t1-out");
 	tl.to(".heart", TIME, { y: 0 }, "t1-out");
 
 	tl.add("bloom");
@@ -44,11 +71,18 @@ function start() {
 	tl.from(".cta", TIME, { opacity: 0 }, "+=.3");
 }
 
-start();
+exports.size = size;
+exports.transformOrigin = transformOrigin;
+exports.start = start;
 
-module.exports = {};
+},{}],2:[function(require,module,exports){
+'use strict';
 
-},{}]},{},[1])
+var _commonJsCommonJs = require('../../_common/js/common.js');
+
+(0, _commonJsCommonJs.start)();
+
+},{"../../_common/js/common.js":1}]},{},[2])
 
 
 //# sourceMappingURL=main.js.map

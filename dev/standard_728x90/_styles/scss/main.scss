@@ -1,0 +1,27 @@
+
+
+@import '../../../_common/styles/common.scss';
+
+
+
+.frame1 {
+	opacity: 0;
+}
+
+
+
+#banner{
+	font-size: 20px;
+	color: #333;
+	width: 728px;
+	height: 90px;
+}
+
+.heart{
+	@include pos-scale(728, 0, .5);
+}
+
+.rose{
+	@include pos(-30, -20);
+	transform-origin: 100px 100px;
+}
