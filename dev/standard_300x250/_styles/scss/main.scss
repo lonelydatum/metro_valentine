@@ -17,3 +17,10 @@
 	height: 250px;
 }
 
+.heart{
+	@include pos-scale(0, 80, .5);
+}
+
+.rose{
+	transform-origin: 50% 100%;
+}

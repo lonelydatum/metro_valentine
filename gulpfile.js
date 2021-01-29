@@ -10,7 +10,7 @@ var takana          = require('takana');
 var _JS_        = require('./_assets/_gulp/gulp-js.js');
 var _SCSS_      = require('./_assets/_gulp/gulp-scss.js');
 var _HTML_      = require('./_assets/_gulp/gulp-html.js');
-var _DEPLOY_    = require('./_assets/_gulp/gulp-deploy-images.js');
+var _DEPLOY_    = require('./_assets/_gulp/gulp-deploy.js');
 var _projectName = '';
 
 
