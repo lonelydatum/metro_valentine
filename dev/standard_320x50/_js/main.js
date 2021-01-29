@@ -46,7 +46,9 @@ function start(){
 
 	tl.from(".cta", TIME, {opacity:0}, "+=.3")
 	
-	
+	const tl_cta = new TimelineMax({repeat:5, yoyo:true})
+	tl_cta.to(".cta.chev", .3, {x:"+=4", ease:Power1.easeOut})
+	tl.add(tl_cta)
 }
 
 start()

@@ -68,7 +68,14 @@ function start() {
 	tl.from(".t5a", TIME, { y: "+=180", opacity: 0 }, "+=.1");
 	tl.from(".t5b", TIME, { y: "+=180", opacity: 0 }, "-=.1");
 
-	tl.from(".cta", TIME, { opacity: 0 }, "+=.3");
+	tl.add('cta', "+=.3");
+	tl.from(".cta", TIME, { opacity: 0 }, "cta");
+
+	var tl_cta = new TimelineMax({ repeat: 5, yoyo: true });
+	tl_cta.to(".cta.chev", .3, { x: "+=4", ease: Power1.easeOut });
+	tl.add(tl_cta);
+
+	// tl.gotoAndPlay("cta")
 }
 
 exports.size = size;
